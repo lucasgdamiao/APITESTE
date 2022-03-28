@@ -1,45 +1,13 @@
-from flask import Flask, request, jsonify
-from flask_pydantic_spec import FlaskPydanticSpec, Response, Request
-from pydantic import BaseModel, Field
-from tinydb import TinyDB, Query
-from typing import Optional
-from itertools import count
+import httpx
 
+lista=[]
+i = 1
 
-server = Flask(__name__)
-spec = FlaskPydanticSpec('flask', title='Teste API')
-spec.register(server)
-database = TinyDB('database.json')
-c =count()
+while(i <=5):
+    params = {'id': str(i)}
+    dicelemento = httpx.get('https://jsonplaceholder.typicode.com/todos', params=params)
+    dic = (dicelemento.json())[0]
+    lista.append(dic)
+    i = i+1
 
-
-class Registro(BaseModel):
-    id:int
-    title: str
-
-class Lista(BaseModel):
-    pessoas: list[Registro]
-    count: int
-
-@server.get('/registros/<int:id>')
-@spec.validate (resp=Response(HTTP_200=Lista))
-def buscar_pessoas(id):
-
-    """Mostra todos os os registros até o ID informado"""
-    try:
-        return jsonify(Lista(pessoas=database.search(Query().id <=id), count=id)   .dict())
-    except IndexError:
-        return {'error':{"reason":"error description"}}
-
-
-@server.post('/registro')
-@spec.validate(body=Request(Registro), resp=Response(HTTP_201=Registro))
-def inserir_pessoa():
-
-    """Insere um registro no banco de dados"""
-    VarA = request.context.body.dict()
-    database.insert(VarA)
-    return VarA
-
-server.run()
-
+print(lista)
