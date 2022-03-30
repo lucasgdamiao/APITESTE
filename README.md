@@ -2,7 +2,7 @@
 
 # Objetivo
 O código deste arquivo foi feito como resposta do teste informado, sua resolução está na folha "main.py" que deve ser executada.
-Ao executar o programa, ele acesssa a pagina https://jsonplaceholder.typicode.com/todos e retorna os 5 primeiros itens, mas apenas as informações "id" e "title" destes 5 itens.
+Ao executar o programa, ele acesssa a pagina https://jsonplaceholder.typicode.com/todos e retorna os 5 primeiros itens, mas apenas as informações "id" e "title" destes mesmos 5 itens.
 
 O código retorna também o timestamp, o retorno da API consultada, o HTTP status code da API consultada e um retorno do tipo json caso haja algum erro interno no server.
 Estes retornos foram pedidos pelo teste.
@@ -10,7 +10,8 @@ Estes retornos foram pedidos pelo teste.
 Para a elaboração do código foi utilizado o aplicativo Pycharm e as bibliotecas Flask, DateTime e httpx.
 
 # Como utilizar
-- Copiar o conteúdo do arquivo main.py em seu projeto.
+Descrição de utilização no Pycharm:
+- Copiar o conteúdo do arquivo "main.py" em seu projeto.
 - Fazer o download das bibliciotes necessárias. No Pycharm, isto pode ser feito seguindo os seguintes passos:
       File -> setting -> Python interpreter -> Install (botão "+") -> selecionar a biblioteca (flask, httpx e datetime) e install package (fazer isto para as três         bibliotecas).
 - Executar o código (run).
