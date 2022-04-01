@@ -14,7 +14,7 @@ Descrição de utilização no Pycharm:
 - Copiar o conteúdo do arquivo "main.py" em seu projeto.
 - Fazer o download das bibliciotes necessárias. No Pycharm, isto pode ser feito seguindo os seguintes passos:
       File -> setting -> Python interpreter -> Install (botão "+") -> selecionar a biblioteca (flask, httpx e datetime) e install package (fazer isto para as três         bibliotecas).
-  
+ 
  No terminal:
       - pip install flask==2.0.3
       - pip install httpx 
